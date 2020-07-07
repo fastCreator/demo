@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		#container {
+			height: 500px;
+			border: 1px solid #999;
+			overflow: auto;
+			width: 400px;
+			background: antiquewhite;
+			box-sizing: border-box;
+		}
+
+		.item {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+	</div>
+</body>
+<script src="./InfiniteScrolling.js"></script>
+<script>
+	new InfiniteScrolling(document.getElementById('container'), async (count) => {
+		let arr = []
+		for (let i = 0; i < 100; i++) {
+			arr.push(`<div style="height:${Math.random() * 20 + 12}px" class="item">${count + i}</div>`)
+		}
+		return arr
+	})
+</script>
+
+</html>
